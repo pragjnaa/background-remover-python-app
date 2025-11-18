@@ -9,7 +9,8 @@ COPY requirements.txt .
 
 # Install the required packages
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --no-cache-dir rembg onnxruntime
+RUN pip install --no-cache-dir onnxruntime
+
 
 
 # Copy the current directory contents into the container at /app
