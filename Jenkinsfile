@@ -60,6 +60,7 @@ pipeline {
         stage ("Deploy to Container") {
             steps {
                 sh 'docker run -d --name background-remover-python-app -p 5100:5100 tirucloud/background-remover-python-app:latest'
-            }
-        }
+           }
+		}
+	}
 }
