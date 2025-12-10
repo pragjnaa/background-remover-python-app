@@ -40,8 +40,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker') {
-                        sh "docker tag background-remover-python-app pragjnaa/background-remover-python-app:latest"
-                        sh "docker push pragjnaa/background-remover-python-app:latest"
+                        sh "docker tag background-remover-python-app pragjna/background-remover-python-app:latest"
+                        sh "docker push pragjna/background-remover-python-app:latest"
                     }
                 }
             }
@@ -50,7 +50,7 @@ pipeline {
         stage ("Deploy to Container") {
             steps {
                 sh 'docker rm -f background-remover-python-app || true'
-                sh 'docker run -d --name background-remover-python-app -p 5100:5100 pragjnaa/background-remover-python-app:latest'
+                sh 'docker run -d --name background-remover-python-app -p 5100:5100 pragjna/background-remover-python-app:latest'
            }
 		}
 	}
