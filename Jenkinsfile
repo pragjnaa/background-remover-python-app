@@ -25,7 +25,7 @@ pipeline {
         stage("Quality Gate") {
             steps {
                 script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'Sonar-token'
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
         stage ("Tag & Push to DockerHub") {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker') {
+                    withDockerRegistry(credentialsId: 'docker-token') {
                         sh "docker tag background-remover-python-app pragjna/background-remover-python-app:latest"
                         sh "docker push pragjna/background-remover-python-app:latest"
                     }
